@@ -1,11 +1,14 @@
 const express = require("express");
 const ongController = require('./controllers/OngController')
+const incidentController = require('./controllers/incidentController')
 
 const routes = express.Router();
 
-//Register a new ONG Route
 routes.post("/ongs", ongController.create)
-//Get all ONGS
 routes.get("/ongs", ongController.index)
+
+routes.post("/incidents", incidentController.create)
+routes.get("/incidents", incidentController.index)
+routes.delete("/incidents/:id", incidentController.delete)
 
 module.exports = routes
